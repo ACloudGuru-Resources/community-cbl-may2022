@@ -1,0 +1,31 @@
+name: Deploy a Bicep file to Azure
+
+on:
+  push:
+    branches: ['main']
+
+jobs:
+
+  deploy-bicep:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: deploy
+        uses: azure/arm-deploy@v1
+        with:
+          subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
+          resourceGroupName: ${{ secrets.AZURE_RG }}
+          template: ./modules.bicep
+          parameters: environment=dev
+          failOnStdErr: false
+
