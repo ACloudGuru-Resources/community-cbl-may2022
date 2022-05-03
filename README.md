@@ -12,6 +12,10 @@ The episode will air live at 6pm Eastern Time on May 3, 2022.  You can watch it 
 
 This repository represents the completed state of the demo.  There is only one branch used for this episode.
 
+## Additional Project
+
+This repository uses an additional project for deployment.  You can review this repository here: [COVID API Demo](https://github.com/davidtucker/covid-data-api-demo)
+
 ## Useful Links
 
 As you dive into Azure Bicep, here are some links that you may find helpful:
